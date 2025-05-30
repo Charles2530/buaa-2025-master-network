@@ -1,0 +1,60 @@
+{
+ "projectInfo": {
+  "name": "as2",
+  "path": "as2",
+  "visibility": "2",
+  "introduction": "",
+  "label": []
+ },
+ "deviceInfoList": [
+  {
+   "resourceName": "CE1",
+   "resourceCategory": "交换机",
+   "resourceModel": "S5820V2-54QS-GE",
+   "resourceVersion": "CMW7.1.075-A7571",
+   "configPath": "DeviceConfig\\CE1.cfg"
+  },
+  {
+   "resourceName": "RR1",
+   "resourceCategory": "路由器",
+   "resourceModel": "MSR36-20",
+   "resourceVersion": "CMW7.1.064-R0821P11",
+   "configPath": "DeviceConfig\\RR1.cfg"
+  },
+  {
+   "resourceName": "ASBR3",
+   "resourceCategory": "路由器",
+   "resourceModel": "MSR36-20",
+   "resourceVersion": "CMW7.1.064-R0821P11",
+   "configPath": "DeviceConfig\\ASBR3.cfg"
+  },
+  {
+   "resourceName": "RR2",
+   "resourceCategory": "路由器",
+   "resourceModel": "MSR36-20",
+   "resourceVersion": "CMW7.1.064-R0821P11",
+   "configPath": "DeviceConfig\\RR2.cfg"
+  },
+  {
+   "resourceName": "ASBR4",
+   "resourceCategory": "路由器",
+   "resourceModel": "MSR36-20",
+   "resourceVersion": "CMW7.1.064-R0821P11",
+   "configPath": "DeviceConfig\\ASBR4.cfg"
+  },
+  {
+   "resourceName": "Cloud_1",
+   "resourceCategory": "终端",
+   "resourceModel": "Cloud",
+   "resourceVersion": "",
+   "configPath": ""
+  },
+  {
+   "resourceName": "VPN7-super",
+   "resourceCategory": "终端",
+   "resourceModel": "PC",
+   "resourceVersion": "",
+   "configPath": "DeviceConfig\\VPN7-super.cfg"
+  }
+ ]
+}

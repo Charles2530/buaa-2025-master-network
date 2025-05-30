@@ -1,0 +1,81 @@
+{
+ "projectInfo": {
+  "name": "as1",
+  "path": "as1",
+  "visibility": "2",
+  "introduction": "",
+  "label": []
+ },
+ "deviceInfoList": [
+  {
+   "resourceName": "CE1",
+   "resourceCategory": "路由器",
+   "resourceModel": "MSR36-20",
+   "resourceVersion": "CMW7.1.064-R0821P11",
+   "configPath": "DeviceConfig\\CE1.cfg"
+  },
+  {
+   "resourceName": "Switch",
+   "resourceCategory": "交换机",
+   "resourceModel": "S5820V2-54QS-GE",
+   "resourceVersion": "CMW7.1.075-A7571",
+   "configPath": "DeviceConfig\\Switch.cfg"
+  },
+  {
+   "resourceName": "RR1",
+   "resourceCategory": "路由器",
+   "resourceModel": "MSR36-20",
+   "resourceVersion": "CMW7.1.064-R0821P11",
+   "configPath": "DeviceConfig\\RR1.cfg"
+  },
+  {
+   "resourceName": "RR2",
+   "resourceCategory": "路由器",
+   "resourceModel": "MSR36-20",
+   "resourceVersion": "CMW7.1.064-R0821P11",
+   "configPath": "DeviceConfig\\RR2.cfg"
+  },
+  {
+   "resourceName": "ASBR3",
+   "resourceCategory": "路由器",
+   "resourceModel": "MSR36-20",
+   "resourceVersion": "CMW7.1.064-R0821P11",
+   "configPath": "DeviceConfig\\ASBR3.cfg"
+  },
+  {
+   "resourceName": "ASBR4",
+   "resourceCategory": "路由器",
+   "resourceModel": "MSR36-20",
+   "resourceVersion": "CMW7.1.064-R0821P11",
+   "configPath": "DeviceConfig\\ASBR4.cfg"
+  },
+  {
+   "resourceName": "ASBR5",
+   "resourceCategory": "路由器",
+   "resourceModel": "MSR36-20",
+   "resourceVersion": "CMW7.1.064-R0821P11",
+   "configPath": "DeviceConfig\\ASBR5.cfg"
+  },
+  {
+   "resourceName": "PC_8",
+   "resourceCategory": "终端",
+   "resourceModel": "PC",
+   "resourceVersion": "",
+   "configPath": "DeviceConfig\\PC_8.cfg"
+  },
+  {
+   "resourceName": "Cloud_1",
+   "resourceCategory": "终端",
+   "resourceModel": "Cloud",
+   "resourceVersion": "",
+   "configPath": ""
+  },
+  {
+   "resourceName": "Cloud_2",
+   "resourceCategory": "终端",
+   "resourceModel": "Cloud",
+   "resourceVersion": "",
+   "configPath": ""
+  }
+ ]
+}

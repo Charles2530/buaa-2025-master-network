@@ -1,0 +1,331 @@
+version = 5.10.2
+[vbox 127.0.0.1:16600]
+    workingdir = None
+    udp = 10000
+    [[PC PC_8]]
+        device_id = 8
+        bridge_mac = a6-2d-6b-08-08-00
+        slot0 = PC 250
+        GE_0/1 = CE1 GE_0/1
+        symbol = PC
+        x = -401.99999999999994
+        y = -193.55555555555554
+        z = 5.0
+    [[MSR36-20 CE1]]
+        device_id = 1
+        bridge_mac = a6-1e-c5-94-01-00
+        slot0 = MSR36 384
+        GE_0/1 = PC_8 GE_0/1
+        GE_0/0 = Switch GE_0/1
+        x = -267.77777777777777
+        y = -197.33333333333334
+        z = 5.0
+    [[S5820V2-54QS-GE Switch]]
+        device_id = 2
+        bridge_mac = a6-1e-df-5c-02-00
+        slot0 = S5800 384
+        GE_0/1 = CE1 GE_0/0
+        GE_0/2 = RR1 GE_0/0
+        GE_0/3 = RR2 GE_0/0
+        x = -195.0
+        y = -123.0
+        z = 5.0
+    [[MSR36-20 RR1]]
+        device_id = 3
+        bridge_mac = a6-2c-e5-a4-03-00
+        slot0 = MSR36 384
+        GE_0/0 = Switch GE_0/2
+        GE_5/0 = RR2 GE_6/1
+        GE_5/1 = ASBR5 GE_0/0
+        GE_6/0 = ASBR4 GE_0/0
+        GE_6/1 = ASBR3 GE_0/0
+        GE_0/1 = Cloud_1 UDP_Tunnel_1
+        GE_0/2 = Cloud_1 UDP_Tunnel_2
+        x = -219.0
+        y = 8.0
+        z = 5.0
+    [[MSR36-20 RR2]]
+        device_id = 4
+        bridge_mac = a6-2d-03-ec-04-00
+        slot0 = MSR36 384
+        GE_0/0 = Switch GE_0/3
+        GE_6/1 = RR1 GE_5/0
+        GE_6/0 = ASBR3 GE_0/1
+        GE_5/1 = ASBR4 GE_0/1
+        GE_5/0 = ASBR5 GE_0/1
+        GE_0/1 = Cloud_1 UDP_Tunnel_3
+        GE_0/2 = Cloud_1 UDP_Tunnel_4
+        x = 115.0
+        y = 9.0
+        z = 5.0
+    [[MSR36-20 ASBR3]]
+        device_id = 5
+        bridge_mac = a6-2d-0c-75-05-00
+        slot0 = MSR36 384
+        GE_0/0 = RR1 GE_6/1
+        GE_0/1 = RR2 GE_6/0
+        GE_0/2 = Cloud_2 UDP_Tunnel_1
+        x = -234.0
+        y = 167.0
+        z = 5.0
+    [[MSR36-20 ASBR4]]
+        device_id = 6
+        bridge_mac = a6-2d-1c-ab-06-00
+        slot0 = MSR36 384
+        GE_0/0 = RR1 GE_6/0
+        GE_0/1 = RR2 GE_5/1
+        GE_0/2 = Cloud_2 UDP_Tunnel_2
+        x = -51.0
+        y = 176.0
+        z = 5.0
+    [[MSR36-20 ASBR5]]
+        device_id = 7
+        bridge_mac = a6-2d-29-99-07-00
+        slot0 = MSR36 384
+        GE_0/0 = RR1 GE_5/1
+        GE_0/1 = RR2 GE_5/0
+        GE_0/2 = Cloud_2 UDP_Tunnel_3
+        x = 134.0
+        y = 180.0
+        z = 5.0
+[Non-vBox-DATA]
+    workdir = working
+    m11 = 0.9
+    m22 = 0.9
+    [[UDPTunnel Cloud_2]]
+        symbol = Cloud
+        UDP_Tunnel_3 = ASBR5 GE_0/2
+        UDP_Tunnel_1 = ASBR3 GE_0/2
+        UDP_Tunnel_2 = ASBR4 GE_0/2
+        x = -21.666666666666668
+        y = 315.0
+        z = 5.0
+        [[[tunnelPorts]]]
+            UDP_Tunnel_1 = 50021, 192.168.5.66, 50011
+            UDP_Tunnel_2 = 50022, 192.168.5.66, 50012
+            UDP_Tunnel_3 = 50023, 192.168.5.66, 50013
+    [[UDPTunnel Cloud_1]]
+        symbol = Cloud
+        UDP_Tunnel_3 = RR2 GE_0/1
+        UDP_Tunnel_1 = RR1 GE_0/1
+        UDP_Tunnel_2 = RR1 GE_0/2
+        UDP_Tunnel_4 = RR2 GE_0/2
+        x = 341.1111111111111
+        y = 114.88888888888889
+        z = 5.0
+        [[[tunnelPorts]]]
+            UDP_Tunnel_1 = 50000, 127.0.0.1, 20000
+            UDP_Tunnel_2 = 50001, 127.0.0.1, 20000
+            UDP_Tunnel_3 = 50002, 127.0.0.1, 20000
+            UDP_Tunnel_4 = 50003, 127.0.0.1, 20000
+    [[NOTE 1]]
+        text = "VPN6"
+        font = "Arial,14,-1,5,75,0,0,0,0,0"
+        x = -311.77777777777777
+        y = -112.16666666666667
+        z = 6.0
+    [[NOTE 2]]
+        text = "UDP_Tunnel_3"
+        interface = Cloud_2 UDP_Tunnel_3
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = 28.916666666666668
+        y = -18.75
+        z = 6.0
+    [[NOTE 3]]
+        text = "UDP_Tunnel_1"
+        interface = Cloud_2 UDP_Tunnel_1
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = -63.08333333333333
+        y = -22.0
+        z = 6.0
+    [[NOTE 4]]
+        text = "UDP_Tunnel_4"
+        interface = Cloud_1 UDP_Tunnel_4
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = -77.13035780866187
+        y = 11.168124433443154
+        z = 6.0
+    [[NOTE 5]]
+        text = "UDP_Tunnel_3"
+        interface = Cloud_1 UDP_Tunnel_3
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = -66.52777777777777
+        y = -11.472222222222229
+        z = 6.0
+    [[NOTE 6]]
+        text = "UDP_Tunnel_2"
+        interface = Cloud_1 UDP_Tunnel_2
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = -154.71408653011235
+        y = 12.834620210749335
+        z = 6.0
+    [[NOTE 7]]
+        text = "UDP_Tunnel_1"
+        interface = Cloud_1 UDP_Tunnel_1
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = -150.02777777777777
+        y = -11.722222222222229
+        z = 6.0
+    [[NOTE 8]]
+        text = "GE_0/2"
+        interface = ASBR5 GE_0/2
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = -48.91666666666666
+        y = 48.75
+        z = 6.0
+    [[NOTE 9]]
+        text = "GE_0/1"
+        interface = ASBR5 GE_0/1
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = -4.444444444444457
+        y = -25.0
+        z = 6.0
+    [[NOTE 10]]
+        text = "GE_0/0"
+        interface = ASBR5 GE_0/0
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = -98.25
+        y = -28.0
+        z = 6.0
+    [[NOTE 11]]
+        text = "GE_0/1"
+        interface = ASBR4 GE_0/1
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = 31.5
+        y = -26.75
+        z = 6.0
+    [[NOTE 12]]
+        text = "GE_0/0"
+        interface = ASBR4 GE_0/0
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = -52.0
+        y = -27.0
+        z = 6.0
+    [[NOTE 13]]
+        text = "GE_0/2"
+        interface = ASBR3 GE_0/2
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = 43.08333333333334
+        y = 52.0
+        z = 6.0
+    [[NOTE 14]]
+        text = "GE_0/1"
+        interface = ASBR3 GE_0/1
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = 77.25
+        y = -24.5
+        z = 6.0
+    [[NOTE 15]]
+        text = "GE_0/0"
+        interface = ASBR3 GE_0/0
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = 3.7735849056603854
+        y = -25.0
+        z = 6.0
+    [[NOTE 16]]
+        text = "GE_0/2"
+        interface = RR2 GE_0/2
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = 35.92519774689367
+        y = 64.1125688778876
+        z = 6.0
+    [[NOTE 17]]
+        text = "GE_0/1"
+        interface = RR2 GE_0/1
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = 46.52777777777777
+        y = 41.47222222222222
+        z = 6.0
+    [[NOTE 18]]
+        text = "GE_5/0"
+        interface = RR2 GE_5/0
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = 4.444444444444457
+        y = 55.0
+        z = 6.0
+    [[NOTE 19]]
+        text = "GE_5/1"
+        interface = RR2 GE_5/1
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = -51.5
+        y = 56.75
+        z = 6.0
+    [[NOTE 20]]
+        text = "GE_6/0"
+        interface = RR2 GE_6/0
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = -97.25
+        y = 54.5
+        z = 6.0
+    [[NOTE 21]]
+        text = "GE_6/1"
+        interface = RR2 GE_6/1
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = -93.5
+        y = 14.75
+        z = 6.0
+    [[NOTE 22]]
+        text = "GE_0/0"
+        interface = RR2 GE_0/0
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = -87.5
+        y = -18.0
+        z = 6.0
+    [[NOTE 23]]
+        text = "GE_0/2"
+        interface = RR1 GE_0/2
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = 125.34146902544319
+        y = 66.27906465519378
+        z = 6.0
+    [[NOTE 24]]
+        text = "GE_0/1"
+        interface = RR1 GE_0/1
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = 130.02777777777777
+        y = 41.72222222222222
+        z = 6.0
+    [[NOTE 25]]
+        text = "GE_6/1"
+        interface = RR1 GE_6/1
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = -3.7735849056603854
+        y = 55.0
+        z = 6.0
+    [[NOTE 26]]
+        text = "GE_6/0"
+        interface = RR1 GE_6/0
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = 32.0
+        y = 57.0
+        z = 6.0
+    [[NOTE 27]]
+        text = "GE_5/1"
+        interface = RR1 GE_5/1
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = 78.25
+        y = 58.0
+        z = 6.0
+    [[NOTE 28]]
+        text = "GE_5/0"
+        interface = RR1 GE_5/0
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = 73.5
+        y = 15.25
+        z = 6.0
+    [[NOTE 29]]
+        text = "GE_0/3"
+        interface = Switch GE_0/3
+        font = "Arial,10,-1,5,50,0,0,0,0,0"
+        x = 67.5
+        y = 48.0
+        z = 6.0
+    [[SHAPE 1]]
+        type = ellipse
+        width = 323.4444444444444
+        height = 231.11111111111111
+        border_color = "#666666"
+        border_style = 2
+        x = -431.11111111111114
+        y = -247.77777777777777
+        z = 3.0

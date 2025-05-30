@@ -1,0 +1,1951 @@
+%Jan  1 00:50:25:922 2011 ASBR1 LDP/5/LDP_SESSION_CHG: Session (2.1.2.3:0, public instance) is down (interface not operational).
+%Jan  1 00:50:25:922 2011 ASBR1 LDP/5/LDP_SESSION_CHG: Session (2.1.2.4:0, public instance) is down (interface not operational).
+%Jan  1 00:50:25:923 2011 ASBR1 LDP/5/LDP_SESSION_CHG: Session (2.1.1.2:0, public instance) is down (interface not operational).
+%Jan  1 00:50:36:721 2011 ASBR1 IFNET/3/PHY_UPDOWN: Physical state on the interface GigabitEthernet0/1 changed to up.
+%Jan  1 00:50:36:722 2011 ASBR1 IFNET/5/LINK_UPDOWN: Line protocol state on the interface GigabitEthernet0/1 changed to up.
+%Jan  1 00:51:17:760 2011 ASBR1 OSPF/5/OSPF_NBR_CHG: OSPF 1 Neighbor 10.2.1.2(GigabitEthernet0/1) changed from LOADING to FULL.
+%Jan  1 00:51:27:161 2011 ASBR1 LDP/5/LDP_SESSION_CHG: Session (2.1.1.2:0, public instance) is up.
+%Jan  1 00:51:33:283 2011 ASBR1 LDP/5/LDP_SESSION_CHG: Session (2.1.2.2:0, public instance) is up.
+%Jan  1 00:51:36:164 2011 ASBR1 LDP/5/LDP_SESSION_CHG: Session (2.1.2.4:0, public instance) is up.
+%Jan  1 00:51:36:167 2011 ASBR1 LDP/5/LDP_SESSION_CHG: Session (2.1.2.3:0, public instance) is up.
+
+[ASBR1]
+[ASBR1]
+[ASBR1]
+[ASBR1]dis ip rou
+
+Destinations : 26       Routes : 26
+
+Destination/Mask   Proto   Pre Cost        NextHop         Interface
+0.0.0.0/32         Direct  0   0           127.0.0.1       InLoop0
+2.1.1.2/32         O_INTRA 10  1           10.2.1.2        GE0/1
+2.1.2.1/32         Direct  0   0           127.0.0.1       InLoop0
+2.1.2.2/32         O_INTRA 10  2           10.2.1.2        GE0/1
+2.1.2.3/32         O_INTRA 10  3           10.2.1.2        GE0/1
+2.1.2.4/32         O_INTRA 10  2           10.2.1.2        GE0/1
+10.2.1.0/24        Direct  0   0           10.2.1.1        GE0/1
+10.2.1.0/32        Direct  0   0           10.2.1.1        GE0/1
+10.2.1.1/32        Direct  0   0           127.0.0.1       InLoop0
+10.2.1.255/32      Direct  0   0           10.2.1.1        GE0/1
+10.2.2.0/24        O_INTRA 10  3           10.2.1.2        GE0/1
+10.2.3.0/24        O_INTRA 10  2           10.2.1.2        GE0/1
+10.2.4.0/24        O_INTRA 10  3           10.2.1.2        GE0/1
+10.2.7.0/24        O_INTRA 10  3           10.2.1.2        GE0/1
+10.2.8.0/24        O_INTRA 10  2           10.2.1.2        GE0/1
+10.2.9.0/24        O_INTRA 10  4           10.2.1.2        GE0/1
+10.2.10.0/24       O_INTRA 10  2           10.2.1.2        GE0/1
+10.2.11.0/24       O_INTRA 10  2           10.2.1.2        GE0/1
+127.0.0.0/8        Direct  0   0           127.0.0.1       InLoop0
+[ASBR1]ping 10.2.10.2
+Ping 10.2.10.2 (10.2.10.2): 56 data bytes, press CTRL_C to break
+56 bytes from 10.2.10.2: icmp_seq=0 ttl=254 time=6.567 ms
+56 bytes from 10.2.10.2: icmp_seq=1 ttl=254 time=19.379 ms
+56 bytes from 10.2.10.2: icmp_seq=2 ttl=254 time=19.748 ms
+56 bytes from 10.2.10.2: icmp_seq=3 ttl=254 time=19.133 ms
+56 bytes from 10.2.10.2: icmp_seq=4 ttl=254 time=19.418 ms
+
+--- Ping statistics for 10.2.10.2 ---
+5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss
+round-trip min/avg/max/std-dev = 6.567/16.849/19.748/5.145 ms
+[ASBR1]%Jan  1 00:52:02:175 2011 ASBR1 PING/6/PING_STATISTICS: Ping statistics for 10.2.10.2: 5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss, round-trip min/avg/max/std-dev = 6.567/16.849/19.748/5.145 ms.
+
+[ASBR1]
+[ASBR2]
+[ASBR2]
+[ASBR2]
+[ASBR2]dis ip rou
+
+Destinations : 26       Routes : 26
+
+Destination/Mask   Proto   Pre Cost        NextHop         Interface
+0.0.0.0/32         Direct  0   0           127.0.0.1       InLoop0
+2.1.1.2/32         O_INTRA 10  1           10.2.3.2        GE0/1
+2.1.2.1/32         O_INTRA 10  2           10.2.3.2        GE0/1
+2.1.2.2/32         Direct  0   0           127.0.0.1       InLoop0
+2.1.2.3/32         O_INTRA 10  3           10.2.3.2        GE0/1
+2.1.2.4/32         O_INTRA 10  2           10.2.3.2        GE0/1
+10.2.1.0/24        O_INTRA 10  2           10.2.3.2        GE0/1
+10.2.2.0/24        O_INTRA 10  3           10.2.3.2        GE0/1
+10.2.3.0/24        Direct  0   0           10.2.3.1        GE0/1
+10.2.3.1/32        Direct  0   0           127.0.0.1       InLoop0
+10.2.3.255/32      Direct  0   0           10.2.3.1        GE0/1
+10.2.4.0/24        Direct  0   0           10.2.4.1        GE0/2
+10.2.4.1/32        Direct  0   0           127.0.0.1       InLoop0
+10.2.4.255/32      Direct  0   0           10.2.4.1        GE0/2
+10.2.7.0/24        O_INTRA 10  3           10.2.3.2        GE0/1
+10.2.8.0/24        O_INTRA 10  2           10.2.3.2        GE0/1
+10.2.9.0/24        O_INTRA 10  4           10.2.3.2        GE0/1
+10.2.10.0/24       O_INTRA 10  2           10.2.3.2        GE0/1
+10.2.11.0/24       O_INTRA 10  2           10.2.3.2        GE0/1
+127.0.0.0/8        Direct  0   0           127.0.0.1       InLoop0
+127.0.0.1/32       Direct  0   0           127.0.0.1       InLoop0
+127.255.255.255/32 Direct  0   0           127.0.0.1       InLoop0
+172.27.15.0/24     O_INTRA 10  2           10.2.3.2        GE0/1
+224.0.0.0/4        Direct  0   0           0.0.0.0         NULL0
+224.0.0.0/24       Direct  0   0           0.0.0.0         NULL0
+255.255.255.255/32 Direct  0   0           127.0.0.1       InLoop0
+[ASBR2]
+[ASBR1]
+[ASBR1]
+[ASBR1]
+[ASBR1]bgp 200
+[ASBR1-bgp-default]peer 1.1.1.1 as-number 100
+[ASBR1-bgp-default]undo peer 1.1.1.1 as-number 100
+                                     ^
+ % Wrong parameter found at '^' position.
+[ASBR1-bgp-default]undo peer 1.1.1.1
+[ASBR1-bgp-default]peer 10.0.0.253 as-
+[ASBR1-bgp-default]peer 10.0.0.253 as-number 100
+[ASBR1-bgp-default]peer 2.1.2.1 as
+[ASBR1-bgp-default]peer 2.1.2.1 as-number 200
+[ASBR1-bgp-default]undo peer 2.1.2.1
+[ASBR1-bgp-default]peer 2.1.1.1 as-number 200
+[ASBR1-bgp-default]peer 2.1.1.2 as-number 200
+[ASBR1-bgp-default]peer 2.1.1.2 con
+[ASBR1-bgp-default]peer 2.1.1.2 connect-interface lo
+[ASBR1-bgp-default]peer 2.1.1.2 connect-interface LoopBack 0
+[ASBR1-bgp-default]peer 2.1.1.1 con
+[ASBR1-bgp-default]peer 2.1.1.1 connect-interface L
+[ASBR1-bgp-default]peer 2.1.1.1 connect-interface LoopBack 0
+[ASBR1-bgp-default]peer 10.0.0.253 as-number 100
+[ASBR1-bgp-default]ipv4
+[ASBR1-bgp-default]ad
+[ASBR1-bgp-default]address-family ip
+[ASBR1-bgp-default]address-family ipv4 un
+[ASBR1-bgp-default]address-family ipv4 unicast
+[ASBR1-bgp-default-ipv4]net 2.1.1.1 32
+[ASBR1-bgp-default-ipv4]net 2.1.1.2 32
+[ASBR1-bgp-default-ipv4]peer 2.1.1.1 enable
+[ASBR1-bgp-default-ipv4]peer 2.1.1.2 enable
+[ASBR1-bgp-default-ipv4]peer 2.1.1.2 rout
+[ASBR1-bgp-default-ipv4]peer 2.1.1.2 route-p
+[ASBR1-bgp-default-ipv4]peer 2.1.1.2 route-policy rr e
+[ASBR1-bgp-default-ipv4]peer 2.1.1.2 route-policy rr export
+[ASBR1-bgp-default-ipv4]peer 2.1.1.2 next-hop
+[ASBR1-bgp-default-ipv4]peer 2.1.1.2 next-hop-local
+[ASBR1-bgp-default-ipv4]peer 2.1.1.1 route-policy rr export
+[ASBR1-bgp-default-ipv4]peer 2.1.1.1 next-hop-local
+[ASBR1-bgp-default-ipv4]peer 2.1.1.1 lab
+[ASBR1-bgp-default-ipv4]peer 2.1.1.1 label-route-capability
+[ASBR1-bgp-default-ipv4]peer 2.1.1.2 label-route-capability
+[ASBR1-bgp-default-ipv4]peer 10.0.0.253 enable
+[ASBR1-bgp-default-ipv4]peer 10.0.0.253 rou
+[ASBR1-bgp-default-ipv4]peer 10.0.0.253 route-p
+[ASBR1-bgp-default-ipv4]peer 10.0.0.253 route-policy asbr e
+[ASBR1-bgp-default-ipv4]peer 10.0.0.253 route-policy asbr export
+[ASBR1-bgp-default-ipv4]peer 10.0.0.253 lab
+[ASBR1-bgp-default-ipv4]peer 10.0.0.253 label-route-capability
+[ASBR1-bgp-default-ipv4]route
+[ASBR1-bgp-default-ipv4]route-po
+[ASBR1-bgp-default-ipv4]route-po
+[ASBR1-bgp-default-ipv4]
+<ASBR1>sys
+System View: return to User View with Ctrl+Z.
+[ASBR1]routw
+[ASBR1]rout
+[ASBR1]route
+[ASBR1]route-policy rr per
+[ASBR1]route-policy rr permit node 0
+[ASBR1-route-policy-rr-0]if-match mpls-label
+[ASBR1-route-policy-rr-0]apply mpls-label
+[ASBR1-route-policy-rr-0]quit
+[ASBR1]route-policy asbr permit node 0
+[ASBR1-route-policy-asbr-0]apply mpls-label
+[ASBR1-route-policy-asbr-0]display current-configuration
+#
+ version 7.1.064, Release 0605P13
+#
+ sysname ASBR1
+#
+ router id 2.1.2.1
+#
+ospf 1
+ area 0.0.0.2
+  network 2.1.2.1 0.0.0.0
+  network 10.2.1.0 0.0.0.255
+  network 10.2.2.0 0.0.0.255
+#
+ mpls lsr-id 2.1.2.1
+#
+ dhcp enable
+ dhcp server always-broadcast
+#
+ dns proxy enable
+#
+ password-recovery enable
+#
+vlan 1
+#
+dhcp server ip-pool lan1
+ gateway-list 192.168.0.1
+ network 192.168.0.0 mask 255.255.254.0
+ address range 192.168.1.2 192.168.1.254
+ dns-list 192.168.0.1
+#
+mpls ldp
+ lsp-trigger all
+#
+controller Cellular0/0
+#
+interface Aux0
+#
+interface Serial1/0
+#
+interface Serial1/1
+#
+interface NULL0
+#
+interface LoopBack0
+ ip address 2.1.2.1 255.255.255.255
+#
+interface GigabitEthernet0/0
+ port link-mode route
+ ip address 10.0.0.254 255.255.255.0
+ mpls enable
+ mpls ldp enable
+#
+interface GigabitEthernet0/1
+ port link-mode route
+ ip address 10.2.1.1 255.255.255.0
+ mpls enable
+ mpls ldp enable
+#
+interface GigabitEthernet0/2
+ port link-mode route
+ ip address 10.2.2.1 255.255.255.0
+ mpls enable
+ mpls ldp enable
+#
+interface GigabitEthernet0/27
+ port link-mode route
+#
+interface GigabitEthernet0/3
+ port link-mode bridge
+#
+interface GigabitEthernet0/4
+ port link-mode bridge
+#
+interface GigabitEthernet0/5
+ port link-mode bridge
+#
+interface GigabitEthernet0/6
+ port link-mode bridge
+#
+interface GigabitEthernet0/7
+ port link-mode bridge
+#
+interface GigabitEthernet0/8
+ port link-mode bridge
+#
+interface GigabitEthernet0/9
+ port link-mode bridge
+#
+interface GigabitEthernet0/10
+ port link-mode bridge
+#
+interface GigabitEthernet0/11
+ port link-mode bridge
+#
+interface GigabitEthernet0/12
+ port link-mode bridge
+#
+interface GigabitEthernet0/13
+ port link-mode bridge
+#
+interface GigabitEthernet0/14
+ port link-mode bridge
+#
+interface GigabitEthernet0/15
+ port link-mode bridge
+#
+interface GigabitEthernet0/16
+ port link-mode bridge
+#
+interface GigabitEthernet0/17
+ port link-mode bridge
+#
+interface GigabitEthernet0/18
+ port link-mode bridge
+#
+interface GigabitEthernet0/19
+ port link-mode bridge
+#
+interface GigabitEthernet0/20
+ port link-mode bridge
+#
+interface GigabitEthernet0/21
+ port link-mode bridge
+#
+interface GigabitEthernet0/22
+ port link-mode bridge
+#
+interface GigabitEthernet0/23
+ port link-mode bridge
+#
+interface GigabitEthernet0/24
+ port link-mode bridge
+#
+interface GigabitEthernet0/25
+ port link-mode bridge
+#
+interface GigabitEthernet0/26
+ port link-mode bridge
+#
+bgp 200
+ peer 2.1.1.1 as-number 200
+ peer 2.1.1.1 connect-interface LoopBack0
+ peer 2.1.1.2 as-number 200
+ peer 2.1.1.2 connect-interface LoopBack0
+ peer 10.0.0.253 as-number 100
+ #
+ address-family ipv4 unicast
+  network 2.1.1.1 255.255.255.255
+  network 2.1.1.2 255.255.255.255
+  peer 2.1.1.1 enable
+  peer 2.1.1.1 route-policy rr export
+  peer 2.1.1.1 label-route-capability
+  peer 2.1.1.1 next-hop-local
+  peer 2.1.1.2 enable
+  peer 2.1.1.2 route-policy rr export
+  peer 2.1.1.2 label-route-capability
+  peer 2.1.1.2 next-hop-local
+  peer 10.0.0.253 enable
+  peer 10.0.0.253 route-policy asbr export
+  peer 10.0.0.253 label-route-capability
+#
+route-policy asbr permit node 0
+ apply mpls-label
+#
+route-policy rr permit node 0
+ if-match mpls-label
+ apply mpls-label
+#
+ scheduler logfile size 16
+#
+line class aux
+ user-role network-admin
+#
+line class tty
+ user-role network-operator
+#
+line class vty
+ user-role network-operator
+#
+line aux 0
+ user-role network-admin
+#
+line vty 0 63
+ authentication-mode scheme
+ user-role network-operator
+#
+domain system
+#
+ domain default enable system
+#
+role name level-0
+ description Predefined level-0 role
+#
+role name level-1
+ description Predefined level-1 role
+#
+role name level-2
+ description Predefined level-2 role
+#
+role name level-3
+ description Predefined level-3 role
+#
+role name level-4
+ description Predefined level-4 role
+#
+role name level-5
+ description Predefined level-5 role
+#
+role name level-6
+ description Predefined level-6 role
+#
+role name level-7
+ description Predefined level-7 role
+#
+role name level-8
+ description Predefined level-8 role
+#
+role name level-9
+ description Predefined level-9 role
+#
+role name level-10
+ description Predefined level-10 role
+#
+role name level-11
+ description Predefined level-11 role
+#
+role name level-12
+ description Predefined level-12 role
+#
+role name level-13
+ description Predefined level-13 role
+#
+role name level-14
+ description Predefined level-14 role
+#
+user-group system
+#
+local-user admin class manage
+ password hash $h$6$4GgE8syHxLv3kkOj$Y8YxqozyCLck+f2nDPMcLuqToZ4bVqL/HTaXYNG19RsDLBWcrBy/3lgX+xQF/7grz0zPka10r09by0wvSRfkyQ==
+ service-type telnet http
+ authorization-attribute user-role network-admin
+#
+ ip http enable
+#
+wlan global-configuration
+ control-address disable
+#
+wlan ap-group default-group
+#
+return
+[ASBR1-route-policy-asbr-0]
+
+<ASBR2>
+<ASBR2>
+<ASBR2>%May 29 14:35:05:944 2025 ASBR2 SHELL/5/SHELL_LOGIN: Console logged in from con0.
+
+<ASBR2>
+<ASBR2>sys
+System View: return to User View with Ctrl+Z.
+[ASBR2]bgp 200
+[ASBR2-bgp-default]peer 2.1.1.1 as
+[ASBR2-bgp-default]peer 2.1.1.1 as-number 200
+[ASBR2-bgp-default]peer
+[ASBR2-bgp-default]peer 2.1.1.2
+[ASBR2-bgp-default]peer 2.1.1.2
+[ASBR2-bgp-default]peer 2.1.1.2 as
+[ASBR2-bgp-default]peer 2.1.1.2 as-number 200
+[ASBR2-bgp-default]peer 10.0.0.249 as
+[ASBR2-bgp-default]peer 10.0.0.249 as-number 100
+[ASBR2-bgp-default]ipv
+[ASBR2-bgp-default]add
+[ASBR2-bgp-default]address-family ipv
+[ASBR2-bgp-default]address-family ipv4 un
+[ASBR2-bgp-default]address-family ipv4 unicast
+[ASBR2-bgp-default-ipv4]net 2.1.1.2 32
+[ASBR2-bgp-default-ipv4]net 2.1.1.1 32
+[ASBR2-bgp-default-ipv4]peer 2.1.1.2 en
+[ASBR2-bgp-default-ipv4]peer 2.1.1.2 enable
+[ASBR2-bgp-default-ipv4]peer 2.1.1.2 ro
+[ASBR2-bgp-default-ipv4]peer 2.1.1.2 route-p
+[ASBR2-bgp-default-ipv4]peer 2.1.1.2 route-policy rr ex
+[ASBR2-bgp-default-ipv4]peer 2.1.1.2 route-policy rr export
+[ASBR2-bgp-default-ipv4]peer 2.1.1.2 nex
+[ASBR2-bgp-default-ipv4]peer 2.1.1.2 next-hop-l
+[ASBR2-bgp-default-ipv4]peer 2.1.1.2 next-hop-local
+[ASBR2-bgp-default-ipv4]peer 2.1.1.2 lab
+[ASBR2-bgp-default-ipv4]peer 2.1.1.2 label-route-capability
+[ASBR2-bgp-default-ipv4]peer 2.1.1.1 enable
+[ASBR2-bgp-default-ipv4]peer 2.1.1.1 nex
+[ASBR2-bgp-default-ipv4]peer 2.1.1.1 next-hop-
+                                     ^
+ % Ambiguous command found at '^' position.
+[ASBR2-bgp-default-ipv4]peer 2.1.1.1 next-hop-l
+[ASBR2-bgp-default-ipv4]peer 2.1.1.1 next-hop-local
+[ASBR2-bgp-default-ipv4]peer 2.1.1.1 la
+[ASBR2-bgp-default-ipv4]peer 2.1.1.1 label-route-capability
+[ASBR2-bgp-default-ipv4]peer 10.0.0.249 en
+[ASBR2-bgp-default-ipv4]peer 10.0.0.249 enable
+[ASBR2-bgp-default-ipv4]peer 10.0.0.249 rout
+[ASBR2-bgp-default-ipv4]peer 10.0.0.249 route-p
+[ASBR2-bgp-default-ipv4]peer 10.0.0.249 route-policy asbr ex
+[ASBR2-bgp-default-ipv4]peer 10.0.0.249 route-policy asbr export
+[ASBR2-bgp-default-ipv4]peer 10.0.0.249 lab
+[ASBR2-bgp-default-ipv4]peer 10.0.0.249 label-route-capability
+[ASBR2-bgp-default-ipv4]route
+[ASBR2-bgp-default-ipv4]quit
+[ASBR2-bgp-default]reoute
+[ASBR2-bgp-default]route
+[ASBR2-bgp-default]router-po
+[ASBR2-bgp-default]
+<ASBR2>sys
+System View: return to User View with Ctrl+Z.
+[ASBR2]rout
+[ASBR2]route-p
+[ASBR2]route-policy rr per
+[ASBR2]route-policy rr permit node 0
+Routing policy node created.
+[ASBR2-route-policy-rr-0]if
+[ASBR2-route-policy-rr-0]if-match mpl
+[ASBR2-route-policy-rr-0]if-match mpls-label
+[ASBR2-route-policy-rr-0]apply mp
+[ASBR2-route-policy-rr-0]apply mpls-
+[ASBR2-route-policy-rr-0]apply mpls-l
+[ASBR2-route-policy-rr-0]apply mpls-label
+[ASBR2-route-policy-rr-0]dis this
+#
+route-policy rr permit node 0
+ if-match mpls-label
+ apply mpls-label
+#
+return
+[ASBR2-route-policy-rr-0]quit
+[ASBR2]route
+[ASBR2]route-policy asbr
+[ASBR2]route-policy asbr per
+[ASBR2]route-policy asbr permit node 1
+Routing policy node created.
+[ASBR2-route-policy-asbr-1]undo route-policy asbr permit node 1
+                                ^
+ % Unrecognized command found at '^' position.
+[ASBR2-route-policy-asbr-1]undo route-policy asbr
+                                ^
+ % Unrecognized command found at '^' position.
+[ASBR2-route-policy-asbr-1]undo rou
+[ASBR2-route-policy-asbr-1]undo rou
+[ASBR2-route-policy-asbr-1]undo rou
+[ASBR2-route-policy-asbr-1]undo route
+[ASBR2-route-policy-asbr-1]undo route
+[ASBR2-route-policy-asbr-1]undo route
+[ASBR2-route-policy-asbr-1]quit
+[ASBR2]undo route-policy asbr permit node 1
+[ASBR2]route-policy asbr permit node 0
+Routing policy node created.
+[ASBR2-route-policy-asbr-0]appl
+[ASBR2-route-policy-asbr-0]apply mpl
+[ASBR2-route-policy-asbr-0]apply mpls-lab
+[ASBR2-route-policy-asbr-0]apply mpls-label
+[ASBR2-route-policy-asbr-0]save
+The current configuration will be written to the device. Are you sure? [Y/N]:y
+Please input the file name(*.cfg)[flash:/startup.cfg]
+(To leave the existing filename unchanged, press the enter key):ASBR2.cfg
+Validating file. Please wait...
+Configuration is saved to device successfully.
+[ASBR2-route-policy-asbr-0]
+<ASBR1>
+<ASBR1>%Jan  1 01:23:28:809 2011 ASBR1 SHELL/5/SHELL_LOGIN: TTY logged in from aux0.
+
+<ASBR1>
+<ASBR1>sys
+System View: return to User View with Ctrl+Z.
+[ASBR1]save
+The current configuration will be written to the device. Are you sure? [Y/N]:y
+Please input the file name(*.cfg)[flash:/startup.cfg]
+(To leave the existing filename unchanged, press the enter key):ASBR1.cfg
+Validating file. Please wait...
+Configuration is saved to device successfully.
+[ASBR1]dis cu
+#
+ version 7.1.064, Release 0605P13
+#
+ sysname ASBR1
+#
+ router id 2.1.2.1
+#
+ospf 1
+ area 0.0.0.2
+  network 2.1.2.1 0.0.0.0
+  network 10.2.1.0 0.0.0.255
+  network 10.2.2.0 0.0.0.255
+#
+ mpls lsr-id 2.1.2.1
+#
+ dhcp enable
+ dhcp server always-broadcast
+#
+ dns proxy enable
+#
+ password-recovery enable
+#
+vlan 1
+#
+dhcp server ip-pool lan1
+ gateway-list 192.168.0.1
+ network 192.168.0.0 mask 255.255.254.0
+ address range 192.168.1.2 192.168.1.254
+ dns-list 192.168.0.1
+#
+mpls ldp
+ lsp-trigger all
+#
+controller Cellular0/0
+#
+interface Aux0
+#
+interface Serial1/0
+#
+interface Serial1/1
+#
+interface NULL0
+#
+interface LoopBack0
+ ip address 2.1.2.1 255.255.255.255
+#
+interface GigabitEthernet0/0
+ port link-mode route
+ ip address 10.0.0.254 255.255.255.0
+ mpls enable
+ mpls ldp enable
+#
+interface GigabitEthernet0/1
+ port link-mode route
+ ip address 10.2.1.1 255.255.255.0
+ mpls enable
+ mpls ldp enable
+#
+interface GigabitEthernet0/2
+ port link-mode route
+ ip address 10.2.2.1 255.255.255.0
+ mpls enable
+ mpls ldp enable
+#
+interface GigabitEthernet0/27
+ port link-mode route
+#
+interface GigabitEthernet0/3
+ port link-mode bridge
+#
+interface GigabitEthernet0/4
+ port link-mode bridge
+#
+interface GigabitEthernet0/5
+ port link-mode bridge
+#
+interface GigabitEthernet0/6
+ port link-mode bridge
+#
+interface GigabitEthernet0/7
+ port link-mode bridge
+#
+interface GigabitEthernet0/8
+ port link-mode bridge
+#
+interface GigabitEthernet0/9
+ port link-mode bridge
+#
+interface GigabitEthernet0/10
+ port link-mode bridge
+#
+interface GigabitEthernet0/11
+ port link-mode bridge
+#
+interface GigabitEthernet0/12
+ port link-mode bridge
+#
+interface GigabitEthernet0/13
+ port link-mode bridge
+#
+interface GigabitEthernet0/14
+ port link-mode bridge
+#
+interface GigabitEthernet0/15
+ port link-mode bridge
+#
+interface GigabitEthernet0/16
+ port link-mode bridge
+#
+interface GigabitEthernet0/17
+ port link-mode bridge
+#
+interface GigabitEthernet0/18
+ port link-mode bridge
+#
+[ASBR1]dis ip rou
+
+Destinations : 26       Routes : 26
+
+Destination/Mask   Proto   Pre Cost        NextHop         Interface
+0.0.0.0/32         Direct  0   0           127.0.0.1       InLoop0
+2.1.1.2/32         O_INTRA 10  1           10.2.1.2        GE0/1
+2.1.2.1/32         Direct  0   0           127.0.0.1       InLoop0
+2.1.2.2/32         O_INTRA 10  2           10.2.1.2        GE0/1
+2.1.2.3/32         O_INTRA 10  3           10.2.1.2        GE0/1
+2.1.2.4/32         O_INTRA 10  2           10.2.1.2        GE0/1
+10.2.1.0/24        Direct  0   0           10.2.1.1        GE0/1
+10.2.1.0/32        Direct  0   0           10.2.1.1        GE0/1
+10.2.1.1/32        Direct  0   0           127.0.0.1       InLoop0
+10.2.1.255/32      Direct  0   0           10.2.1.1        GE0/1
+10.2.2.0/24        O_INTRA 10  3           10.2.1.2        GE0/1
+10.2.3.0/24        O_INTRA 10  2           10.2.1.2        GE0/1
+10.2.4.0/24        O_INTRA 10  3           10.2.1.2        GE0/1
+10.2.7.0/24        O_INTRA 10  3           10.2.1.2        GE0/1
+10.2.8.0/24        O_INTRA 10  2           10.2.1.2        GE0/1
+10.2.9.0/24        O_INTRA 10  4           10.2.1.2        GE0/1
+10.2.10.0/24       O_INTRA 10  2           10.2.1.2        GE0/1
+10.2.11.0/24       O_INTRA 10  2           10.2.1.2        GE0/1
+127.0.0.0/8        Direct  0   0           127.0.0.1       InLoop0
+127.0.0.0/32       Direct  0   0           127.0.0.1       InLoop0
+127.0.0.1/32       Direct  0   0           127.0.0.1       InLoop0
+127.255.255.255/32 Direct  0   0           127.0.0.1       InLoop0
+172.27.15.0/24     O_INTRA 10  2           10.2.1.2        GE0/1
+224.0.0.0/4        Direct  0   0           0.0.0.0         NULL0
+224.0.0.0/24       Direct  0   0           0.0.0.0         NULL0
+255.255.255.255/32 Direct  0   0           127.0.0.1       InLoop0
+[ASBR1]
+Inactive timeout reached, loggin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+******************************************************************************
+* Copyright (c) 2004-2017 New H3C Technologies Co., Ltd. All rights reserved.*
+* Without the owner's prior written consent,                                 *
+* no decompiling or reverse-engineering shall be allowed.                    *
+******************************************************************************
+
+Line aux0 is available.
+
+
+Press ENTER to get started.
+
+
+
+<ASBR1>
+<ASBR1>
+<ASBR1>
+<ASBR1>%Jan  1 02:18:04:724 2011 ASBR1 SHELL/5/SHELL_LOGIN: TTY logged in from aux0.
+
+<ASBR1>sys
+System View: return to User View with Ctrl+Z.
+[ASBR1]
+
+<ASBR2>
+<ASBR2>
+<ASBR2>%May 29 15:42:33:886 2025 ASBR2 SHELL/5/SHELL_LOGIN: Console logged in from con0.
+
+<ASBR2>sys
+System View: return to User View with Ctrl+Z.
+[ASBR2]display current-configuration
+#
+ version 7.1.064, Release 6749P21
+#
+ sysname ASBR2
+#
+wlan global-configuration
+#
+ security-zone intra-zone default permit
+#
+ router id 2.1.2.2
+#
+ospf 1
+ area 0.0.0.2
+  network 2.1.2.2 0.0.0.0
+  network 10.2.3.0 0.0.0.255
+  network 10.2.4.0 0.0.0.255
+#
+ mpls lsr-id 2.1.2.2
+#
+ dhcp enable
+ dhcp server always-broadcast
+#
+ dns proxy enable
+#
+ system-working-mode standard
+ password-recovery enable
+#
+vlan 1
+#
+dhcp server ip-pool lan1
+ gateway-list 192.168.0.1
+ network 192.168.0.0 mask 255.255.254.0
+ address range 192.168.1.2 192.168.1.254
+ dns-list 192.168.0.1
+#
+mpls ldp
+ lsp-trigger all
+#
+controller Cellular0/0
+#
+interface Serial1/0
+#
+interface Serial1/1
+#
+interface NULL0
+#
+interface LoopBack0
+ ip address 2.1.2.2 255.255.255.255
+#
+interface Vlan-interface1
+ description LAN-interface
+ ip address 192.168.0.1 255.255.254.0
+ tcp mss 1280
+#
+interface GigabitEthernet0/0
+ port link-mode route
+ ip address 10.0.0.250 255.255.255.0
+ mpls enable
+ mpls ldp enable
+#
+interface GigabitEthernet0/1
+ port link-mode route
+ ip address 10.2.3.1 255.255.255.0
+ mpls enable
+ mpls ldp enable
+#
+interface GigabitEthernet0/2
+ port link-mode route
+ ip address 10.2.4.1 255.255.255.0
+ mpls enable
+ mpls ldp enable
+#
+interface GigabitEthernet0/27
+ port link-mode route
+#
+interface GigabitEthernet0/28
+ port link-mode route
+#
+interface GigabitEthernet0/3
+ port link-mode bridge
+#
+interface GigabitEthernet0/4
+ port link-mode bridge
+#
+interface GigabitEthernet0/5
+ port link-mode bridge
+#
+interface GigabitEthernet0/6
+ port link-mode bridge
+#
+interface GigabitEthernet0/7
+ port link-mode bridge
+#
+interface GigabitEthernet0/8
+ port link-mode bridge
+#
+interface GigabitEthernet0/9
+ port link-mode bridge
+#
+interface GigabitEthernet0/10
+ port link-mode bridge
+#
+interface GigabitEthernet0/11
+ port link-mode bridge
+#
+interface GigabitEthernet0/12
+ port link-mode bridge
+#
+interface GigabitEthernet0/13
+ port link-mode bridge
+#
+interface GigabitEthernet0/14
+ port link-mode bridge
+#
+interface GigabitEthernet0/15
+ port link-mode bridge
+#
+interface GigabitEthernet0/16
+ port link-mode bridge
+#
+interface GigabitEthernet0/17
+ port link-mode bridge
+#
+interface GigabitEthernet0/18
+ port link-mode bridge
+#
+interface GigabitEthernet0/19
+ port link-mode bridge
+#
+interface GigabitEthernet0/20
+ port link-mode bridge
+#
+interface GigabitEthernet0/21
+ port link-mode bridge
+#
+interface GigabitEthernet0/22
+ port link-mode bridge
+#
+interface GigabitEthernet0/23
+ port link-mode bridge
+#
+interface GigabitEthernet0/24
+ port link-mode bridge
+#
+interface GigabitEthernet0/25
+ port link-mode bridge
+#
+interface GigabitEthernet0/26
+ port link-mode bridge
+#
+bgp 200
+ peer 2.1.1.1 as-number 200
+ peer 2.1.1.2 as-number 200
+ peer 10.0.0.249 as-number 100
+ #
+ address-family ipv4 unicast
+  network 2.1.1.1 255.255.255.255
+  network 2.1.1.2 255.255.255.255
+  peer 2.1.1.1 enable
+  peer 2.1.1.1 label-route-capability
+  peer 2.1.1.1 next-hop-local
+  peer 2.1.1.2 enable
+  peer 2.1.1.2 route-policy rr export
+  peer 2.1.1.2 label-route-capability
+  peer 2.1.1.2 next-hop-local
+  peer 10.0.0.249 enable
+  peer 10.0.0.249 route-policy asbr export
+  peer 10.0.0.249 label-route-capability
+#
+route-policy asbr permit node 0
+ apply mpls-label
+#
+route-policy rr permit node 0
+ if-match mpls-label
+ apply mpls-label
+#
+ scheduler logfile size 16
+#
+line class console
+ user-role network-admin
+#
+line class tty
+ user-role network-operator
+#
+line class vty
+ user-role network-operator
+#
+line con 0
+ user-role network-admin
+#
+line vty 0 63
+ authentication-mode scheme
+ user-role network-operator
+#
+performance-management
+#
+ password-control enable
+ undo password-control aging enable
+ undo password-control history enable
+ password-control length 6
+ password-control login-attempt 3 exceed lock-time 10
+ password-control update-interval 0
+ password-control login idle-time 0
+#
+domain system
+#
+ domain default enable system
+#
+role name level-0
+ description Predefined level-0 role
+#
+role name level-1
+ description Predefined level-1 role
+#
+role name level-2
+ description Predefined level-2 role
+#
+role name level-3
+ description Predefined level-3 role
+#
+role name level-4
+ description Predefined level-4 role
+#
+role name level-5
+ description Predefined level-5 role
+#
+role name level-6
+ description Predefined level-6 role
+#
+role name level-7
+ description Predefined level-7 role
+#
+role name level-8
+ description Predefined level-8 role
+#
+role name level-9
+ description Predefined level-9 role
+#
+role name level-10
+ description Predefined level-10 role
+#
+role name level-11
+ description Predefined level-11 role
+#
+role name level-12
+ description Predefined level-12 role
+#
+role name level-13
+ description Predefined level-13 role
+#
+role name level-14
+ description Predefined level-14 role
+#
+user-group system
+#
+local-user admin class manage
+ service-type telnet http
+ authorization-attribute user-role network-admin
+#
+ security-enhanced level 1
+#
+ ssl version gm-tls1.1 disable
+ undo ssl renegotiation disable
+ undo ssl version ssl3.0 disable
+ undo ssl version tls1.0 disable
+ undo ssl version tls1.1 disable
+ undo ssl version tls1.2 disable
+ undo ssl version tls1.3 disable
+#
+ ip http enable
+ web new-style
+#
+wlan ap-group default-group
+ vlan 1
+#
+return
+[ASBR2]
+Inactive timeout reached, logging out.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+******************************************************************************
+* Copyright (c) 2004-2023 New H3C Technologies Co., Ltd. All rights reserved.*
+* Without the owner's prior written consent,                                 *
+* no decompiling or reverse-engineering shall be allowed.                    *
+******************************************************************************
+
+Line con0 is available.
+
+
+Press ENTER to get started.
+
+
+<ASBR2>
+<ASBR2>
+<ASBR2>%May 29 16:16:50:126 2025 ASBR2 SHELL/5/SHELL_LOGIN: Console logged in from con0.
+
+<ASBR2>
+<ASBR2>sys
+System View: return to User View with Ctrl+Z.
+[ASBR2]display current-configuration
+#
+ version 7.1.064, Release 6749P21
+#
+ sysname ASBR2
+#
+wlan global-configuration
+#
+ security-zone intra-zone default permit
+#
+ router id 2.1.2.2
+#
+ospf 1
+ area 0.0.0.2
+  network 2.1.2.2 0.0.0.0
+  network 10.2.3.0 0.0.0.255
+  network 10.2.4.0 0.0.0.255
+#
+ mpls lsr-id 2.1.2.2
+#
+ dhcp enable
+ dhcp server always-broadcast
+#
+ dns proxy enable
+#
+ system-working-mode standard
+ password-recovery enable
+#
+vlan 1
+#
+dhcp server ip-pool lan1
+ gateway-list 192.168.0.1
+ network 192.168.0.0 mask 255.255.254.0
+ address range 192.168.1.2 192.168.1.254
+ dns-list 192.168.0.1
+#
+mpls ldp
+ lsp-trigger all
+#
+controller Cellular0/0
+#
+interface Serial1/0
+#
+interface Serial1/1
+#
+interface NULL0
+#
+interface LoopBack0
+ ip address 2.1.2.2 255.255.255.255
+#
+interface Vlan-interface1
+ description LAN-interface
+ ip address 192.168.0.1 255.255.254.0
+ tcp mss 1280
+#
+interface GigabitEthernet0/0
+ port link-mode route
+ ip address 10.0.0.250 255.255.255.0
+ mpls enable
+ mpls ldp enable
+#
+interface GigabitEthernet0/1
+ port link-mode route
+ ip address 10.2.3.1 255.255.255.0
+ mpls enable
+ mpls ldp enable
+#
+interface GigabitEthernet0/2
+ port link-mode route
+ ip address 10.2.4.1 255.255.255.0
+ mpls enable
+ mpls ldp enable
+#
+interface GigabitEthernet0/27
+ port link-mode route
+#
+interface GigabitEthernet0/28
+ port link-mode route
+#
+interface GigabitEthernet0/3
+ port link-mode bridge
+#
+interface GigabitEthernet0/4
+ port link-mode bridge
+#
+interface GigabitEthernet0/5
+ port link-mode bridge
+#
+interface GigabitEthernet0/6
+ port link-mode bridge
+#
+interface GigabitEthernet0/7
+ port link-mode bridge
+#
+interface GigabitEthernet0/8
+ port link-mode bridge
+#
+interface GigabitEthernet0/9
+ port link-mode bridge
+#
+interface GigabitEthernet0/10
+ port link-mode bridge
+#
+interface GigabitEthernet0/11
+ port link-mode bridge
+#
+interface GigabitEthernet0/12
+ port link-mode bridge
+#
+interface GigabitEthernet0/13
+ port link-mode bridge
+#
+interface GigabitEthernet0/14
+ port link-mode bridge
+#
+interface GigabitEthernet0/15
+ port link-mode bridge
+#
+interface GigabitEthernet0/16
+ port link-mode bridge
+#
+interface GigabitEthernet0/17
+ port link-mode bridge
+#
+interface GigabitEthernet0/18
+ port link-mode bridge
+#
+interface GigabitEthernet0/19
+ port link-mode bridge
+#
+interface GigabitEthernet0/20
+ port link-mode bridge
+#
+interface GigabitEthernet0/21
+ port link-mode bridge
+#
+interface GigabitEthernet0/22
+ port link-mode bridge
+#
+interface GigabitEthernet0/23
+ port link-mode bridge
+#
+interface GigabitEthernet0/24
+ port link-mode bridge
+#
+interface GigabitEthernet0/25
+ port link-mode bridge
+#
+interface GigabitEthernet0/26
+ port link-mode bridge
+#
+bgp 200
+ peer 2.1.1.1 as-number 200
+ peer 2.1.1.2 as-number 200
+ peer 10.0.0.249 as-number 100
+ #
+ address-family ipv4 unicast
+  network 2.1.1.1 255.255.255.255
+  network 2.1.1.2 255.255.255.255
+  peer 2.1.1.1 enable
+  peer 2.1.1.1 label-route-capability
+  peer 2.1.1.1 next-hop-local
+  peer 2.1.1.2 enable
+  peer 2.1.1.2 route-policy rr export
+  peer 2.1.1.2 label-route-capability
+  peer 2.1.1.2 next-hop-local
+  peer 10.0.0.249 enable
+  peer 10.0.0.249 route-policy asbr export
+  peer 10.0.0.249 label-route-capability
+#
+route-policy asbr permit node 0
+ apply mpls-label
+#
+route-policy rr permit node 0
+ if-match mpls-label
+ apply mpls-label
+#
+ scheduler logfile size 16
+#
+line class console
+ user-role network-admin
+#
+line class tty
+ user-role network-operator
+#
+line class vty
+ user-role network-operator
+#
+line con 0
+ user-role network-admin
+#
+line vty 0 63
+ authentication-mode scheme
+ user-role network-operator
+#
+performance-management
+#
+ password-control enable
+ undo password-control aging enable
+ undo password-control history enable
+ password-control length 6
+ password-control login-attempt 3 exceed lock-time 10
+ password-control update-interval 0
+ password-control login idle-time 0
+#
+domain system
+#
+ domain default enable system
+#
+role name level-0
+ description Predefined level-0 role
+#
+role name level-1
+ description Predefined level-1 role
+#
+role name level-2
+ description Predefined level-2 role
+#
+role name level-3
+ description Predefined level-3 role
+#
+role name level-4
+ description Predefined level-4 role
+#
+role name level-5
+ description Predefined level-5 role
+#
+role name level-6
+ description Predefined level-6 role
+#
+role name level-7
+ description Predefined level-7 role
+#
+role name level-8
+ description Predefined level-8 role
+#
+role name level-9
+ description Predefined level-9 role
+#
+role name level-10
+ description Predefined level-10 role
+#
+role name level-11
+ description Predefined level-11 role
+#
+role name level-12
+ description Predefined level-12 role
+#
+role name level-13
+ description Predefined level-13 role
+#
+role name level-14
+ description Predefined level-14 role
+#
+user-group system
+#
+local-user admin class manage
+ service-type telnet http
+ authorization-attribute user-role network-admin
+#
+ security-enhanced level 1
+#
+ ssl version gm-tls1.1 disable
+ undo ssl renegotiation disable
+ undo ssl version ssl3.0 disable
+ undo ssl version tls1.0 disable
+ undo ssl version tls1.1 disable
+ undo ssl version tls1.2 disable
+ undo ssl version tls1.3 disable
+#
+ ip http enable
+ web new-style
+#
+wlan ap-group default-group
+ vlan 1
+#
+return
+[ASBR2]
+                                                       %May 29 16:19:36:351 2025 ASBR2 BGP/5/BGP_STATE_CHANGED:
+ BGP.: 2.1.1.2 state has changed from OPENCONFIRM to ESTABLISHED.
+%May 29 16:23:54:019 2025 ASBR2 LDP/5/LDP_SESSION_CHG: Session (2.1.2.3:0, public instance) is down (hello hold timer expired). (LocalTransportAddr=2.1.2.2, PeerTransportAddr=2.1.2.3, SessionRole=Passive, SessionUpTime=0000:00:16, KeepaliveTime=45s, KeepaliveSentCount=65, KeepaliveRcvdCount=64, GracefulRestart=Off, SocketID=59, WaitSendMsg=0, CPUUsage=0%, MemoryState=Normal).
+%May 29 16:23:54:319 2025 ASBR2 LDP/5/LDP_SESSION_CHG: Session (2.1.2.4:0, public instance) is down (hello hold timer expired). (LocalTransportAddr=2.1.2.2, PeerTransportAddr=2.1.2.4, SessionRole=Passive, SessionUpTime=0000:02:08, KeepaliveTime=45s, KeepaliveSentCount=515, KeepaliveRcvdCount=514, GracefulRestart=Off, SocketID=58, WaitSendMsg=0, CPUUsage=0%, MemoryState=Normal).
+%May 29 16:23:56:119 2025 ASBR2 LDP/5/LDP_SESSION_CHG: Session (2.1.1.2:0, public instance) is down (hello hold timer expired). (LocalTransportAddr=2.1.2.2, PeerTransportAddr=2.1.1.2, SessionRole=Active, SessionUpTime=0000:02:08, KeepaliveTime=45s, KeepaliveSentCount=515, KeepaliveRcvdCount=514, GracefulRestart=Off, SocketID=54, WaitSendMsg=0, CPUUsage=1%, MemoryState=Normal).
+%May 29 16:23:59:812 2025 ASBR2 MTP/6/MTP_PING_INFO: Ping information, (Base: Time = 16:23:54, Destination IP = 2.1.2.3, VrfIndex = 0, Protocol Module = LDP, Packet Number = 9), (Result: Success = 0, Length 100 ping 1 fail, Length 100 ping 2 fail, Length 100 ping 3 fail, Length 1000 ping 4 fail, Length 1000 ping 5 fail, Length 1000 ping 6 fail, Length 4000 ping 7 fail, Length 4000 ping 8 fail, Length 4000 ping 9 fail).
+%May 29 16:23:59:812 2025 ASBR2 MTP/6/MTP_PING_INFO: Ping information, (Base: Time = 16:23:54, Destination IP = 2.1.2.4, VrfIndex = 0, Protocol Module = LDP, Packet Number = 9), (Result: Success = 0, Length 100 ping 1 fail, Length 100 ping 2 fail, Length 100 ping 3 fail, Length 1000 ping 4 fail, Length 1000 ping 5 fail, Length 1000 ping 6 fail, Length 4000 ping 7 fail, Length 4000 ping 8 fail, Length 4000 ping 9 fail).
+%May 29 16:23:59:860 2025 ASBR2 MTP/6/MTP_TRACERT_INFO: Tracert information, (Base: Time = 16:23:54, Destination IP = 2.1.2.3, VrfIndex = 0, MaxHop = 30, Packet Number = 3, Protocol Module = LDP), (Result: All failed).
+%May 29 16:23:59:860 2025 ASBR2 MTP/6/MTP_TRACERT_INFO: Tracert information, (Base: Time = 16:23:54, Destination IP = 2.1.2.4, VrfIndex = 0, MaxHop = 30, Packet Number = 3, Protocol Module = LDP), (Result: All failed).
+%May 29 16:24:01:812 2025 ASBR2 MTP/6/MTP_PING_INFO: Ping information, (Base: Time = 16:23:56, Destination IP = 2.1.1.2, VrfIndex = 0, Protocol Module = LDP, Packet Number = 9), (Result: Success = 0, Length 100 ping 1 fail, Length 100 ping 2 fail, Length 100 ping 3 fail, Length 1000 ping 4 fail, Length 1000 ping 5 fail, Length 1000 ping 6 fail, Length 4000 ping 7 fail, Length 4000 ping 8 fail, Length 4000 ping 9 fail).
+%May 29 16:24:01:860 2025 ASBR2 MTP/6/MTP_TRACERT_INFO: Tracert information, (Base: Time = 16:23:56, Destination IP = 2.1.1.2, VrfIndex = 0, MaxHop = 30, Packet Number = 3, Protocol Module = LDP), (Result: All failed).
+%May 29 16:24:19:436 2025 ASBR2 OSPF/5/OSPF_NBR_CHG: OSPF 1 Neighbor 10.2.3.2(GigabitEthernet0/1) changed from FULL to DOWN.
+%May 29 16:24:22:719 2025 ASBR2 LDP/5/LDP_SESSION_CHG: Session (2.1.2.1:0, public instance) is down (keepalive hold timer expired). (LocalTransportAddr=2.1.2.2, PeerTransportAddr=2.1.2.1, SessionRole=Active, SessionUpTime=0000:02:08, KeepaliveTime=45s, KeepaliveSentCount=514, KeepaliveRcvdCount=512, GracefulRestart=Off, SocketID=42, WaitSendMsg=0, CPUUsage=0%, MemoryState=Normal).
+%May 29 16:24:27:812 2025 ASBR2 MTP/6/MTP_PING_INFO: Ping information, (Base: Time = 16:24:22, Destination IP = 2.1.2.1, VrfIndex = 0, Protocol Module = LDP, Packet Number = 9), (Result: Success = 0, Length 100 ping 1 fail, Length 100 ping 2 fail, Length 100 ping 3 fail, Length 1000 ping 4 fail, Length 1000 ping 5 fail, Length 1000 ping 6 fail, Length 4000 ping 7 fail, Length 4000 ping 8 fail, Length 4000 ping 9 fail).
+%May 29 16:24:27:860 2025 ASBR2 MTP/6/MTP_TRACERT_INFO: Tracert information, (Base: Time = 16:24:22, Destination IP = 2.1.2.1, VrfIndex = 0, MaxHop = 30, Packet Number = 3, Protocol Module = LDP), (Result: All failed).
+%May 29 16:25:15:357 2025 ASBR2 BGP/5/BGP_STATE_CHANGED:
+ BGP.: 2.1.1.2 state has changed from ESTABLISHED to IDLE for TCP_Connection_Failed event received.
+%May 29 16:26:31:015 2025 ASBR2 OSPF/5/OSPF_NBR_CHG: OSPF 1 Neighbor 10.2.3.2(GigabitEthernet0/1) changed from LOADING to FULL.
+
+Inactive timeout reached, logging out.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+******************************************************************************
+* Copyright (c) 2004-2023 New H3C Technologies Co., Ltd. All rights reserved.*
+* Without the owner's prior written consent,                                 *
+* no decompiling or reverse-engineering shall be allowed.                    *
+******************************************************************************
+
+Line con0 is available.
+
+
+Press ENTER to get started.
+
+
+
+<ASBR2>
+<ASBR2>
+<ASBR2>
+<ASBR2>%May 29 17:11:55:476 2025 ASBR2 SHELL/5/SHELL_LOGIN: Console logged in from con0.
+
+<ASBR2>dis ip rou
+
+Destinations : 26       Routes : 26
+
+Destination/Mask   Proto   Pre Cost        NextHop         Interface
+0.0.0.0/32         Direct  0   0           127.0.0.1       InLoop0
+2.1.1.2/32         O_INTRA 10  1           10.2.3.2        GE0/1
+2.1.2.1/32         O_INTRA 10  2           10.2.3.2        GE0/1
+2.1.2.2/32         Direct  0   0           127.0.0.1       InLoop0
+2.1.2.3/32         O_INTRA 10  3           10.2.3.2        GE0/1
+2.1.2.4/32         O_INTRA 10  2           10.2.3.2        GE0/1
+10.2.1.0/24        O_INTRA 10  2           10.2.3.2        GE0/1
+10.2.2.0/24        O_INTRA 10  3           10.2.3.2        GE0/1
+10.2.3.0/24        Direct  0   0           10.2.3.1        GE0/1
+10.2.3.1/32        Direct  0   0           127.0.0.1       InLoop0
+10.2.3.255/32      Direct  0   0           10.2.3.1        GE0/1
+10.2.4.0/24        Direct  0   0           10.2.4.1        GE0/2
+10.2.4.1/32        Direct  0   0           127.0.0.1       InLoop0
+10.2.4.255/32      Direct  0   0           10.2.4.1        GE0/2
+10.2.7.0/24        O_INTRA 10  3           10.2.3.2        GE0/1
+10.2.8.0/24        O_INTRA 10  3           10.2.3.2        GE0/1
+10.2.9.0/24        O_INTRA 10  4           10.2.3.2        GE0/1
+10.2.10.0/24       O_INTRA 10  2           10.2.3.2        GE0/1
+10.2.11.0/24       O_INTRA 10  2           10.2.3.2        GE0/1
+127.0.0.0/8        Direct  0   0           127.0.0.1       InLoop0
+127.0.0.1/32       Direct  0   0           127.0.0.1       InLoop0
+127.255.255.255/32 Direct  0   0           127.0.0.1       InLoop0
+172.27.15.0/24     O_INTRA 10  2           10.2.3.2        GE0/1
+224.0.0.0/4        Direct  0   0           0.0.0.0         NULL0
+224.0.0.0/24       Direct  0   0           0.0.0.0         NULL0
+255.255.255.255/32 Direct  0   0           127.0.0.1       InLoop0
+<ASBR2>
+Inactive timeout reached, logging out.
+%May 29 17:22:06
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+******************************************************************************
+* Copyright (c) 2004-2023 New H3C Technologies Co., Ltd. All rights reserved.*
+* Without the owner's prior written consent,                                 *
+* no decompiling or reverse-engineering shall be allowed.                    *
+******************************************************************************
+
+Line con0 is available.
+
+
+Press ENTER to get started.
+
+
+<ASBR2>
+<ASBR2>
+<ASBR2>%May 29 18:03:47:357 2025 ASBR2 SHELL/5/SHELL_LOGIN: Console logged in from con0.
+
+<ASBR2>sys
+System View: return to User View with Ctrl+Z.
+[ASBR2]bgp 200
+[ASBR2-bgp-default]address-family  ipv4 uni
+[ASBR2-bgp-default-ipv4]net 2.1.1.1 32
+[ASBR2-bgp-default-ipv4]net 2.1.1.2 32
+[ASBR2-bgp-default-ipv4]net 2.1.2.1 32
+[ASBR2-bgp-default-ipv4]net 2.1.2.2 32
+[ASBR2-bgp-default-ipv4]net 2.1.2.3 32
+[ASBR2-bgp-default-ipv4]net 2.1.2.4 32
+[ASBR2-bgp-default-ipv4]
+
+<ASBR1>
+<ASBR1>
+<ASBR1>%Jan  1 04:39:44:636 2011 ASBR1 SHELL/5/SHELL_LOGIN: TTY logged in from aux0.
+
+<ASBR1>sys
+System View: return to User View with Ctrl+Z.
+[ASBR1]bgp 200
+[ASBR1-bgp-default]address-family  ipv4 uni
+[ASBR1-bgp-default-ipv4]net 2.1.1.1 32
+[ASBR1-bgp-default-ipv4]net 2.1.1.2 32
+[ASBR1-bgp-default-ipv4]net 2.1.2.1 32
+[ASBR1-bgp-default-ipv4]net 2.1.2.2 32
+[ASBR1-bgp-default-ipv4]net 2.1.2.3 32
+[ASBR1-bgp-default-ipv4]net 2.1.2.4 32
+[ASBR1-bgp-default-ipv4]display current-configuration
+#
+ version 7.1.064, Release 0605P13
+#
+ sysname ASBR1
+#
+ router id 2.1.2.1
+#
+ospf 1
+ area 0.0.0.2
+  network 2.1.2.1 0.0.0.0
+  network 10.2.1.0 0.0.0.255
+  network 10.2.2.0 0.0.0.255
+#
+ mpls lsr-id 2.1.2.1
+#
+ dhcp enable
+ dhcp server always-broadcast
+#
+ dns proxy enable
+#
+ password-recovery enable
+#
+vlan 1
+#
+dhcp server ip-pool lan1
+ gateway-list 192.168.0.1
+ network 192.168.0.0 mask 255.255.254.0
+ address range 192.168.1.2 192.168.1.254
+ dns-list 192.168.0.1
+#
+mpls ldp
+ lsp-trigger all
+#
+controller Cellular0/0
+#
+interface Aux0
+#
+interface Serial1/0
+#
+interface Serial1/1
+#
+interface NULL0
+#
+interface LoopBack0
+ ip address 2.1.2.1 255.255.255.255
+#
+interface GigabitEthernet0/0
+ port link-mode route
+ ip address 10.0.0.254 255.255.255.0
+ mpls enable
+ mpls ldp enable
+#
+interface GigabitEthernet0/1
+ port link-mode route
+ ip address 10.2.1.1 255.255.255.0
+ mpls enable
+ mpls ldp enable
+#
+interface GigabitEthernet0/2
+ port link-mode route
+ ip address 10.2.2.1 255.255.255.0
+ mpls enable
+ mpls ldp enable
+#
+interface GigabitEthernet0/27
+ port link-mode route
+#
+interface GigabitEthernet0/3
+ port link-mode bridge
+#
+interface GigabitEthernet0/4
+ port link-mode bridge
+#
+interface GigabitEthernet0/5
+ port link-mode bridge
+#
+interface GigabitEthernet0/6
+ port link-mode bridge
+#
+interface GigabitEthernet0/7
+ port link-mode bridge
+#
+interface GigabitEthernet0/8
+ port link-mode bridge
+#
+interface GigabitEthernet0/9
+ port link-mode bridge
+#
+interface GigabitEthernet0/10
+ port link-mode bridge
+#
+interface GigabitEthernet0/11
+ port link-mode bridge
+#
+interface GigabitEthernet0/12
+ port link-mode bridge
+#
+interface GigabitEthernet0/13
+ port link-mode bridge
+#
+interface GigabitEthernet0/14
+ port link-mode bridge
+#
+interface GigabitEthernet0/15
+ port link-mode bridge
+#
+interface GigabitEthernet0/16
+ port link-mode bridge
+#
+interface GigabitEthernet0/17
+ port link-mode bridge
+#
+interface GigabitEthernet0/18
+ port link-mode bridge
+#
+interface GigabitEthernet0/19
+ port link-mode bridge
+#
+interface GigabitEthernet0/20
+ port link-mode bridge
+#
+interface GigabitEthernet0/21
+ port link-mode bridge
+#
+interface GigabitEthernet0/22
+ port link-mode bridge
+#
+interface GigabitEthernet0/23
+ port link-mode bridge
+#
+interface GigabitEthernet0/24
+ port link-mode bridge
+#
+interface GigabitEthernet0/25
+ port link-mode bridge
+#
+interface GigabitEthernet0/26
+ port link-mode bridge
+#
+bgp 200
+ peer 2.1.1.1 as-number 200
+ peer 2.1.1.1 connect-interface LoopBack0
+ peer 2.1.1.2 as-number 200
+ peer 2.1.1.2 connect-interface LoopBack0
+ peer 10.0.0.253 as-number 100
+ #
+ address-family ipv4 unicast
+  network 2.1.1.1 255.255.255.255
+  network 2.1.1.2 255.255.255.255
+  network 2.1.2.1 255.255.255.255
+  network 2.1.2.2 255.255.255.255
+  network 2.1.2.3 255.255.255.255
+  network 2.1.2.4 255.255.255.255
+  peer 2.1.1.1 enable
+  peer 2.1.1.1 route-policy rr export
+  peer 2.1.1.1 label-route-capability
+  peer 2.1.1.1 next-hop-local
+  peer 2.1.1.2 enable
+  peer 2.1.1.2 route-policy rr export
+  peer 2.1.1.2 label-route-capability
+  peer 2.1.1.2 next-hop-local
+  peer 10.0.0.253 enable
+  peer 10.0.0.253 route-policy asbr export
+  peer 10.0.0.253 label-route-capability
+#
+route-policy asbr permit node 0
+ apply mpls-label
+#
+route-policy rr permit node 0
+ if-match mpls-label
+ apply mpls-label
+#
+ scheduler logfile size 16
+#
+line class aux
+ user-role network-admin
+#
+line class tty
+ user-role network-operator
+#
+line class vty
+ user-role network-operator
+#
+line aux 0
+ user-role network-admin
+#
+line vty 0 63
+ authentication-mode scheme
+ user-role network-operator
+#
+domain system
+#
+ domain default enable system
+#
+role name level-0
+ description Predefined level-0 role
+#
+role name level-1
+ description Predefined level-1 role
+#
+role name level-2
+ description Predefined level-2 role
+#
+role name level-3
+ description Predefined level-3 role
+#
+role name level-4
+ description Predefined level-4 role
+#
+role name level-5
+ description Predefined level-5 role
+#
+role name level-6
+ description Predefined level-6 role
+#
+role name level-7
+ description Predefined level-7 role
+#
+role name level-8
+ description Predefined level-8 role
+#
+role name level-9
+ description Predefined level-9 role
+#
+role name level-10
+ description Predefined level-10 role
+#
+role name level-11
+ description Predefined level-11 role
+#
+role name level-12
+ description Predefined level-12 role
+#
+role name level-13
+ description Predefined level-13 role
+#
+role name level-14
+ description Predefined level-14 role
+#
+user-group system
+#
+local-user admin class manage
+ password hash $h$6$4GgE8syHxLv3kkOj$Y8YxqozyCLck+f2nDPMcLuqToZ4bVqL/HTaXYNG19RsDLBWcrBy/3lgX+xQF/7grz0zPka10r09by0wvSRfkyQ==
+ service-type telnet http
+ authorization-attribute user-role network-admin
+#
+ ip http enable
+#
+wlan global-configuration
+ control-address disable
+#
+wlan ap-group default-group
+#
+return
+[ASBR1-bgp-default-ipv4]
+Inactive timeout reached, loggin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+******************************************************************************
+* Copyright (c) 2004-2017 New H3C Technologies Co., Ltd. All rights reserved.*
+* Without the owner's prior written consent,                                 *
+* no decompiling or reverse-engineering shall be allowed.                    *
+******************************************************************************
+
+Line aux0 is available.
+
+
+Press ENTER to get started.
+
+<ASBR2>
+<ASBR2>
+<ASBR2>
+<ASBR2>sys
+System View: return to User View with Ctrl+Z.
+[ASBR2]inter g 0/1
+[ASBR2-GigabitEthernet0/1]ospf cost 1
+[ASBR2-GigabitEthernet0/1]inter g 0/2
+[ASBR2-GigabitEthernet0/2]ospf cost 1
+[ASBR2-GigabitEthernet0/2]ip tt
+[ASBR2-GigabitEthernet0/2]ip tt
+[ASBR2-GigabitEthernet0/2]qui
+[ASBR2]ip tt
+[ASBR2]ip ttl-expires en
+[ASBR2]ip ttl-expires enable
+[ASBR2]ip un
+[ASBR2]ip unreachables en
+[ASBR2]ip unreachables enable
+[ASBR2]undo ip ttl-expires enable
+[ASBR2]undo ip unreachables enable
+[ASBR2]undo ip ttl-expires enable
+[ASBR2]undo ip unreachables enable
+[ASBR2]
+<ASBR1>
+<ASBR1>
+<ASBR1>
+<ASBR1>
+<ASBR1>sys
+System View: return to User View with Ctrl+Z.
+[ASBR1]undo ip ttl-expires enable
+[ASBR1]undo ip unreachables enable
+[ASBR1]
+Inactive timeout reached, logging out.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+******************************************************************************
+* Copyright (c) 2004-2017 New H3C Technologies Co., Ltd. All rights reserved.*
+* Without the owner's prior written consent,                                 *
+* no decompiling or reverse-engineering shall be allowed.                    *
+******************************************************************************
+
+Line aux0 is available.
+
+
+Press ENTER to get started.
+
+
+
+
+<ASBR2>
+<ASBR2>
+<ASBR2>
+<ASBR2>
+<ASBR2>%May 29 22:28:25:175 2025 ASBR2 SHELL/5/SHELL_LOGIN: Console logged in from con0.
+
+<ASBR2>
+<ASBR2>
+<ASBR2>sys
+System View: return to User View with Ctrl+Z.
+[ASBR2]bgp 200
+[ASBR2-bgp-default]ad
+[ASBR2-bgp-default]address-family ipv4 uni
+[ASBR2-bgp-default-ipv4]dea
+[ASBR2-bgp-default-ipv4]def
+[ASBR2-bgp-default-ipv4]default lo
+[ASBR2-bgp-default-ipv4]default local-preference 300
+[ASBR2-bgp-default-ipv4]save
+The current configuration will be written to the device. Are you sure? [Y/N]:y
+Please input the file name(*.cfg)[flash:/ASBR2.cfg]
+(To leave the existing filename unchanged, press the enter key):
+flash:/ASBR2.cfg exists, overwrite? [Y/N]:y
+Validating file. Please wait...
+Configuration is saved to device successfully.
+[ASBR2-bgp-default-ipv4]
+
+<ASBR1>
+<ASBR1>
+<ASBR1>
+<ASBR1>%Jan  1 09:09:26:597 2011 ASBR1 SHELL/5/SHELL_LOGIN: TTY logged in from aux0.
+
+<ASBR1>
+<ASBR1>sdave
+       ^
+ % Unrecognized command found at '^' position.
+<ASBR1>save
+The current configuration will be written to the device. Are you sure? [Y/N]:y
+Please input the file name(*.cfg)[flash:/ASBR1.cfg]
+(To leave the existing filename unchanged, press the enter key):
+flash:/ASBR1.cfg exists, overwrite? [Y/N]:y
+Validating file. Please wait...
+Configuration is saved to device successfully.
+<ASBR1>
+Inactive timeout reached, loggin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+******************************************************************************
+* Copyright (c) 2004-2017 New H3C Technologies Co., Ltd. All rights reserved.*
+* Without the owner's prior written consent,                                 *
+* no decompiling or reverse-engineering shall be allowed.                    *
+******************************************************************************
+
+Line aux0 is available.
+
+
+Press ENTER to get started.
+
+
+
+
+<ASBR1>
+<ASBR1>
+<ASBR1>
+<ASBR1>
+<ASBR1>%Jan  1 09:39:41:101 2011 ASBR1 SHELL/5/SHELL_LOGIN: TTY logged in from aux0.
+
+<ASBR1>
+<ASBR1>
+<ASBR1>
+<ASBR1>
+<ASBR1>undo ip ttl-expires enable
+            ^
+ % Unrecognized command found at '^' position.
+<ASBR1>undo ip unreachables enable
+            ^
+ % Unrecognized command found at '^' position.
+<ASBR1>
